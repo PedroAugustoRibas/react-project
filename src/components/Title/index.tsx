@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import avalicao from "./assets/avalicao.png";
-import consulta from "./assets/consulta.png";
-import grafico from "./assets/grafico.png";
+import avaliacao from './assets/avaliacao.png';
+import grafico from './assets/grafico.png';
+import consulta from './assets/consulta.png';
+import styled from 'styled-components';
 
 interface Props {
   image?: string;
@@ -24,22 +24,22 @@ const SpanStyled = styled.span<Props>`
 
 const TitleStyled = styled.h2`
   color: var(--azul-claro);
-`
+`;
 
 const ContainerStyled = styled.div`
   display: flex;
   align-itens: center;
-`
+`;
 
 function Title({ image, children }: Props) {
   const mapedImages: IImage = {
-    avaliation: avalicao,
+    avaliation: avaliacao,
     graph: grafico,
     query: consulta,
   };
   return (
     <ContainerStyled>
-      <SpanStyled image={mapedImages[image as keyof IImage]} />
+      {image && <SpanStyled image={mapedImages[image as keyof IImage]} />}
       <TitleStyled>{children}</TitleStyled>
     </ContainerStyled>
   );
